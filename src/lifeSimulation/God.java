@@ -4,11 +4,22 @@ public class God {
   private LifeSimu lifeSimu ;
 
   int[][] coordinatesAliveCells = {
-    {3,2},
-    {2,2},
-    {3,3},
-    {3,4},
-    //{2, 3},
+    // {0, 0},
+    // {0, 4},
+    // {1, 2},
+    // {1, 3},
+    // {2, 2},
+    // {2, 4},
+    // {3, 0},
+    // {3, 3},
+    // {3, 0},
+    {25,25},
+    {26,25},
+    {27,25},
+    {27,26},
+    {27,27},
+    {26,27},
+    {25,27},
   };
 
   // {0, 0},
@@ -25,7 +36,7 @@ public class God {
 
 
   public God(){
-    lifeSimu = new LifeSimu(10,10,3,7,coordinatesAliveCells);
+    lifeSimu = new LifeSimu(50,50,2,4,3,coordinatesAliveCells);
   }
 
   private void drawGrid(boolean[][] x){
@@ -47,11 +58,20 @@ public class God {
 
   public void run() throws InterruptedException{
 
+    int i=0;
     //drawGrid(lifeSimu.getGrid());
     do{
+      System.out.println("Generation:  "+i);
+      // if (i==0 || (i>=109 && i<=111)) {
+      //   drawGrid(lifeSimu.getGrid());
+      // } 
       drawGrid(lifeSimu.getGrid());
       lifeSimu.passToNextGen();
       Thread.sleep(100);
+      i++;
+      // if (i==112) {
+      //   return;
+      // }
     }while(!lifeSimu.isAllCellsDead(lifeSimu.getGrid()));
     drawGrid(lifeSimu.getGrid());
   }
