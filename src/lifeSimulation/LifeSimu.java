@@ -56,11 +56,6 @@ public class LifeSimu {
       }
     }
 
-    
-    if (y==46 && x==45) {
-      System.out.println("x:"+x+"    y:"+y+"voisins : "+pop);
-    }
-
 
     if (grid[y][x]==true) {
       pop--;
@@ -69,8 +64,6 @@ public class LifeSimu {
       }
       
     }
-
-    //System.out.println("y:"+ x + "  x:"+y+"     "+pop);
     if (grid[y][x]==false && pop==ruleToNewBorn ) {
       
       return true;
